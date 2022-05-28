@@ -24,11 +24,11 @@ public class sqlconnect {
 
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             System.out.println("Database connected!");
+            String insertSql = "INSERT INTO j06318538.popular (nickname, mail, password) VALUES "
+                    + "('volodka', 'volodya2006@gmail.com', 'volodyakrutoy');";
         } catch (SQLException e) {
             throw new IllegalStateException("Cannot connect the database!", e);
         }
 
-            String insertSql = "INSERT INTO j06318538.popular (nickname, mail, password) VALUES "
-                    + "('volodka', 'volodya2006@gmail.com', 'volodyakrutoy');";
     }
 }
