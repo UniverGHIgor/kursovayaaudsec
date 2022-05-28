@@ -22,6 +22,5 @@ public class sqlconnect {
 
         ResultSet resultSet = null;
 
-
     }
 }
