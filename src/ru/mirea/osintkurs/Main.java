@@ -1,4 +1,4 @@
-package ru.mirea.osintkurs;
+package ru.mirea.osintkurs ;
 
 public class Main {
 
