@@ -5,8 +5,9 @@ package ru.mirea.osintkurs;
 //import java.sql.SQLException;
 //import java.sql.Statement;
 //import java.util.Scanner;
+// import java.util.*;
 import java.sql.*;
-import java.util.*;
+
 public class SQL {
     protected Connection conn = null;
     protected String  url,namebase,pass,table;

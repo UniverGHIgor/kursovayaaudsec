@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mysql.connector.java" level="project" />
     <orderEntry type="library" name="github.jdbc.bare.spring" level="project" />
+    <orderEntry type="library" name="googlecode.json.simple" level="project" />
   </component>
 </module>
