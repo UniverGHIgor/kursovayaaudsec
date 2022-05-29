@@ -32,7 +32,7 @@ class Employee extends sqlconnect {
                     stmt = conn.createStatement();
 
                     String insertSql = "INSERT INTO j06318538.Popular (nickname, mail, password) VALUES "
-                            + "('volodka', 'volodya2006@gmail.com', 'volodyakrutoy');";
+                            + "('"+nickname+"','"+mail+"','"+password+"');";
 
 
                     PreparedStatement statement = conn.prepareStatement(insertSql);
