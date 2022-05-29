@@ -33,6 +33,7 @@ class Employee extends sqlconnect {
                     String insertSql = "INSERT INTO j06318538.Popular (nickname, mail, password) VALUES "
                             + "('volodka', 'volodya2006@gmail.com', 'volodyakrutoy');";
 
+
                     PreparedStatement statement = conn.prepareStatement(insertSql);
                     statement.executeUpdate(insertSql);
 
