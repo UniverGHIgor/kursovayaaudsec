@@ -12,7 +12,7 @@ public class sqlconnect {
 
     // Connect to your database.
     // Replace server name, username, and password with your credentials
-    public static void main(String[] args) throws Exception {
+    public static void jdbc(String[] args) throws Exception {
         Class.forName("com.mysql.jdbc.Driver");
     }
     public static void main() {
