@@ -1,6 +1,9 @@
 package ru.mirea.osintkurs ;
 
 public class Main {
+	static String  url      = "jdbc:mysql://mysql.j06318538.myjino.ru:3306/j06318538",
+			username = "j06318538",
+			pass     = "kursovaya";
 
 	public static void main(String[] args) {
 		/*
@@ -11,10 +14,10 @@ public class Main {
 		 * */
 		System.setProperty("java.net.preferIPv4Stack" , "true");
 
-		sqlconnect A = new sqlconnect();
-		A.Startconnect();
+		SQLconnect A = new SQLconnect();
+		A.Startconnect(url,username,pass);
 		SQLInsert B = new SQLInsert();
-		B.Startinsert();
+		B.Startinsert(url,username,pass);
 
 	}
 

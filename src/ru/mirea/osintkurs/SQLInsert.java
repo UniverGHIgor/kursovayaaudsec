@@ -1,16 +1,17 @@
 package ru.mirea.osintkurs;
 import java.sql.*;
 import java.util.*;
-import java.sql.PreparedStatement;
+//import java.sql.PreparedStatement;
 public class SQLInsert {
+    static String nickname = null,
+            mail = null,
+            password = null;
 
-    public static void Startinsert() {
+    public static void Startinsert(String url, String username, String pass) {
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://mysql.j06318538.myjino.ru:3306/j06318538", "j06318538", "kursovaya");
-            Statement stmt = null;
+            Connection conn = DriverManager.getConnection(url, username, pass);
+            Statement stmt = conn.createStatement();
             Scanner scn = new Scanner(System.in);
-            String nickname = null, mail = null, password = null;
-
             try {
                 Class.forName("com.mysql.jdbc.Driver");
 
@@ -23,12 +24,10 @@ public class SQLInsert {
                 System.out.print("Enter your password: ");
                 password = scn.nextLine();
 
-
-
                 System.out.print("\nInserting your data into table...");
-                stmt = conn.createStatement();
+                //stmt = conn.createStatement();
 
-                String insertSql = "INSERT INTO j06318538.Popular (nickname, mail, password) VALUES "
+                String insertSql = "INSERT INTO "+username+".Popular (nickname, mail, password) VALUES "
                         + "('"+nickname+"','"+mail+"','"+password+"');";
 
 
