@@ -2,8 +2,9 @@ package ru.mirea.osintkurs ;
 
 public class Main {
 	static String  url      = "jdbc:mysql://mysql.j06318538.myjino.ru:3306/j06318538",
-			username = "j06318538",
-			pass     = "kursovaya";
+			namebase = "j06318538",
+			pass     = "kursovaya",
+			table    = "Popular";
 
 	public static void main(String[] args) {
 		/*
@@ -13,18 +14,15 @@ public class Main {
 		 * !Авторы категорически против использования данного приложения в любых незаконных целях и не несут ответственности за Ваши действия!
 		 * */
 		System.setProperty("java.net.preferIPv4Stack" , "true");
-
-		SQLconnect A = new SQLconnect();
-		A.Startconnect(url,username,pass);
-		//SQLInsert B = new SQLInsert();
-		//B.Startinsert(url,username,pass);
-		SQLsearch C = new SQLsearch();
-		try {
-			C.search();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+//		SQL AA = new SQL(url,namebase,pass);
+		//SQLconnect A = new SQLconnect(url,namebase,pass,table);
+		//A.Startconnect();
+		//SQLInsert B = new SQLInsert(url,namebase,pass,table);
+		//B.Startinsert();
+		//SQLsearch C = new SQLsearch(url,namebase,pass,table);
+		//C.search();
+		//SQLDelete D = new SQLDelete(url,namebase,pass,table);
+		//D.Startdelete();
 	}
 
 }
