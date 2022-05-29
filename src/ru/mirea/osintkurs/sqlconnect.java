@@ -20,6 +20,7 @@ public class sqlconnect {
         String username = "j06318538";
         String pass = "kursovaya";
 
+
         System.out.println("Connecting database...");
 
         try (Connection conn = DriverManager.getConnection(url, username, pass)) {

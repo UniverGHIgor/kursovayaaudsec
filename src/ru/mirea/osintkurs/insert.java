@@ -27,6 +27,7 @@ class Employee extends sqlconnect {
                     password = scn.nextLine();
 
 
+
                     System.out.print("\nInserting your data into table...");
                     stmt = conn.createStatement();
 
