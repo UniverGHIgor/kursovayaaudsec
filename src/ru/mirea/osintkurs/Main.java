@@ -12,10 +12,10 @@ public class Main {
 		System.setProperty("java.net.preferIPv4Stack" , "true");
 
 		sqlconnect A = new sqlconnect();
-		A.main();
+		A.Startconnect();
+		SQLInsert B = new SQLInsert();
+		B.Startinsert();
 
-		//Employee.SQLInsert B = new Employee.SQLInsert();
-		//B.main();
 	}
 
 }
