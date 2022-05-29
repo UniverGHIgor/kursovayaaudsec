@@ -8,8 +8,9 @@ class Employee extends sqlconnect {
 
     public static class SQLInsert {
 
-        public static void main() {
-            Connection conn = DriverManager.getConnection(url, username, pass);
+        public void run() throws SQLException {
+            main();
+            Connection conn = DriverManager.getConnection("jdbc:mysql://mysql.j06318538.myjino.ru:3306/j06318538", "j06318538", "kursovaya");
             Statement stmt = null;
             Scanner scn = new Scanner(System.in);
             String nickname = null, mail = null, password = null;
