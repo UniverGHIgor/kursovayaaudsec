@@ -4,8 +4,8 @@ import java.util.*;
 //import java.sql.PreparedStatement;
 public class SQLInsert {
     static String nickname = null,
-            mail = null,
-            password = null;
+                  mail = null,
+                  password = null;
 
     public static void Startinsert(String url, String username, String pass) {
         try {
@@ -42,20 +42,13 @@ public class SQLInsert {
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-                try {
-                    if (stmt != null)
-                        conn.close();
-                } catch (SQLException se) {
-                }
-                try {
-                    if (conn != null)
-                        conn.close();
-                } catch (SQLException se) {
-                    se.printStackTrace();
-                }
+                stmt.close();
+                conn.close();
             }
             System.out.println("Thank you for your patronage!");
         }
-        catch (SQLException e) {}
+        catch (SQLException e) {
+
+        }
     }
 }
