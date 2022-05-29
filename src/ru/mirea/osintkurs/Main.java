@@ -16,8 +16,14 @@ public class Main {
 
 		SQLconnect A = new SQLconnect();
 		A.Startconnect(url,username,pass);
-		SQLInsert B = new SQLInsert();
-		B.Startinsert(url,username,pass);
+		//SQLInsert B = new SQLInsert();
+		//B.Startinsert(url,username,pass);
+		SQLsearch C = new SQLsearch();
+		try {
+			C.search();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 

@@ -9,7 +9,7 @@ public class SQLsearch {
     Scanner scn = new Scanner(System.in);
     String nickname = null, mail = null, password = null;
 
-    public void  SQLsearch() {
+    public SQLsearch() {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://mysql.j06318538.myjino.ru:3306/j06318538", "j06318538", "kursovaya");
         } catch (Exception e) {
@@ -25,7 +25,7 @@ public class SQLsearch {
         PreparedStatement ps = conn.prepareStatement(search);
         ResultSet rs = ps.executeQuery();
 
-        System.out.println("nickname\t\tmail\t\tpassword");
+        //System.out.println("nickname\t\tmail\t\tpassword");
 
         if (rs.next()) {
 
@@ -34,7 +34,7 @@ public class SQLsearch {
             String password = rs.getString("password");
 
             // Print and display name, emailID and password
-            System.out.println(name + "\t\t" + email + "\t\t" + password);
+            System.out.println("nickname: " + name + "\nmail: " + email + "\npassword: " + password);
         }
 
 
@@ -43,7 +43,7 @@ public class SQLsearch {
 
 
 
-    public static void search() {
+    public void search() throws SQLException {
         Scanner scn = new Scanner(System.in);
         System.out.print("You can choose search option: ");
         System.out.print("\n1) Search by nickname");
