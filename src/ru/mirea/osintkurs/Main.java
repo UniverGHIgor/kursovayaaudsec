@@ -10,8 +10,12 @@ public class Main {
 	* !Авторы категорически против использования данного приложения в любых незаконных целях и не несут ответственности за Ваши действия!
 	* */
 		System.setProperty("java.net.preferIPv4Stack" , "true");
+
 		sqlconnect A = new sqlconnect();
 		A.main();
 
+		Employee.SQLInsert B = new Employee.SQLInsert();
+		B.main();
     }
+
 }
