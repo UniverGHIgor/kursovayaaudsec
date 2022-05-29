@@ -14,8 +14,8 @@ public class Main {
 		sqlconnect A = new sqlconnect();
 		A.main();
 
-		Employee.SQLInsert B = new Employee.SQLInsert();
-		B.main();
+		//Employee.SQLInsert B = new Employee.SQLInsert();
+		//B.main();
     }
 
 }
