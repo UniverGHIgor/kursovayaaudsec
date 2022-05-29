@@ -23,6 +23,10 @@ public class Main {
 		//C.search();
 		//SQLDelete D = new SQLDelete(url,namebase,pass,table);
 		//D.Startdelete();
+
+		URLReader E = new URLReader();
+		E.leakcheck();
+
 	}
 
 }
