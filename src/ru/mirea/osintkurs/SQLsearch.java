@@ -54,6 +54,18 @@ public class SQLsearch {
             System.out.println("Error retype");
             i=scn.nextInt();
         }
-        search_by("mail");
+        switch (i) {
+            case 1:
+                search_by("nickname");
+                break;
+            case 2:
+                search_by("mail");
+                break;
+            case 3:
+                search_by("password");
+                break;
+            default:
+                search_by("mail");
+        }
     }
 }
