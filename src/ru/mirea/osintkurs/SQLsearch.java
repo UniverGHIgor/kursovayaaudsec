@@ -9,29 +9,33 @@ public class SQLsearch extends SQL{
         super(url, namebase, pass, table);
         Startconnect();
     }
+
     public void search() {
         Scanner scn = new Scanner(System.in);
-        System.out.print("You can choose search option: ");
-        System.out.print("\n1) Search by nickname" +
-                         "\n2) Search by mail" +
-                         "\n3) Search by password\n");
-        int i=scn.nextInt();
-        while((i!=1) & (i!=2) &( i!=3)) {
-            System.out.println("Error retype");
-            i=scn.nextInt();
+        System.out.print("""
+                You can choose search option:
+
+                1) Search by nickname
+                2) Search by mail
+                3) Search by password
+                """);
+        int userinsert=scn.nextInt();
+        while((userinsert!=1) & (userinsert!=2) &( userinsert!=3)) {
+            for (int i = 0; i < 50; ++i) System.out.println();
+            System.out.print("""
+                You can choose search option:
+
+                1) Search by nickname
+                2) Search by mail
+                3) Search by password
+                """);
+            userinsert=scn.nextInt();
         }
-        switch (i) {
-            case 1:
-                search_by("nickname");
-                break;
-            case 2:
-                search_by("mail");
-                break;
-            case 3:
-                search_by("password");
-                break;
-            default:
-                search_by("mail");
+        switch (userinsert) {
+            case 1 -> search_by("nickname");
+            case 2 -> search_by("mail");
+            case 3 -> search_by("password");
+            default -> search_by("mail");
         }
     }
     public void search_by(String args) {
@@ -47,7 +51,14 @@ public class SQLsearch extends SQL{
                 String email = rs.getString("mail");
                 String password = rs.getString("password");
                 System.out.println("nickname: " + name + "\nmail: " + email + "\npassword: " + password);
-            } else {System.out.println("Congratulations no data found in the database");}
+                System.out.println("Please enter to return main menu");
+                int userinsert=scn.nextInt();
+                for (int i = 0; i < 50; ++i) System.out.println();
+            } else {
+                System.out.println("Congratulations no data found in the database");
+                System.out.println("Please enter to return main menu");
+                int userinsert=scn.nextInt();
+                for (int i = 0; i < 50; ++i) System.out.println();}
         } catch (Exception e) {
 			e.printStackTrace();
 		}

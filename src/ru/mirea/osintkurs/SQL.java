@@ -1,25 +1,19 @@
 package ru.mirea.osintkurs;
-
-//import java.sql.Connection;
-//import java.sql.DriverManager;
-//import java.sql.SQLException;
-//import java.sql.Statement;
-//import java.util.Scanner;
-// import java.util.*;
 import java.sql.*;
 
-public class SQL {
+public class SQL extends Thread{
     protected Connection conn = null;
     protected String  url,namebase,pass,table;
     protected Statement stmt = null;
     protected String nickname = null, mail = null, password = null;
 
     public SQL(String url,String namebase,String pass,String table) {
-        try {
+
             this.url=url;
             this.namebase=namebase;
             this.pass=pass;
             this.table=table;
+        try {
             conn = DriverManager.getConnection(url,namebase,pass);
             stmt = conn.createStatement();
         } catch (Exception e) {

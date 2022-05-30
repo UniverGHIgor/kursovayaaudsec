@@ -4,57 +4,75 @@ import org.json.simple.parser.JSONParser;
 
 import java.net.*;
 import java.io.*;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Scanner;
+import java.util.*;
+//import java.util.concurrent.TimeUnit;
 
-public class URLReader {
-    public void leakcheck()  {
-
+public class URLReader extends Thread{
+    public void run()  {
             Scanner scn = new Scanner(System.in);
             System.out.print("Enter your api key: ");
             String key = scn.nextLine();
 
+            System.out.print("Enter wanted type(email,phone,auto): ");
+            String type = scn.nextLine();
+
             System.out.print("Enter wanted data: ");
             String date = scn.nextLine();
-
-            System.out.print("Enter wanted type: ");
-            String type = scn.nextLine();
 
             try {
             URL lc = new URL("https://leakcheck.io/api?key="+key+"&check="+date+"&type="+type+"");
             URLConnection yc = lc.openConnection();
             BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
+            String inputLine= in.readLine();
+            in.close();
+            Object obj = new JSONParser().parse(inputLine);
+            JSONObject jo = (JSONObject) obj;
+            for (int j = 0; j < 50; ++j) System.out.println();
+            if ((Boolean) jo.get("success")) {
+                System.out.println("Data found successfully");
+               ArrayList<Storage> vec = new ArrayList<Storage>();
 
-            String inputLine="{}";
-            Storage folder = new Storage();
-            while ((inputLine = in.readLine()) != null) {
-                System.out.println(inputLine);
+                int i = 0;
+                while(i != (Long)jo.get(("found"))){
+                    Storage data = new Storage();
+                    data.sources=(JSONArray)((JSONObject) ((JSONArray)jo.get("result")).get(i)).get("sources");
+                    data.data=(String) ((JSONObject) ((JSONArray)jo.get("result")).get(i)).get("line");
+                    data.last_beach=(String) ((JSONObject) ((JSONArray)jo.get("result")).get(i)).get("last_breach");
+                    vec.add(data);
+                    i++;
+                }
+                System.out.println("Total Found: "+(Long)jo.get(("found")));
+                vec.get(0).output();
 
-                Object obj = new JSONParser().parse(inputLine); // Object obj = new JSONParser().parse(new FileReader("JSONExample.json"));
-// Кастим obj в JSONObject
-                JSONObject jo = (JSONObject) obj;
 
-// Достаём firstName and lastName
-                folder.sources = (String[]) jo.get("sources");
-                //System.out.println(Arrays.toString(folder.sources));
-                System.out.println((String[]) jo.get("sources"));
-                folder.email_only = (String) jo.get("email_only");
-                folder.line = (String[]) jo.get("line");
-                folder.last_breach = (String[]) jo.get("last_breach");
-            } in.close();
-        //System.out.println("fio: " + firstName + " " + lastName);
-// Достаем массив номеров
-        //JSONArray phoneNumbersArr = (JSONArray) jo.get("phoneNumbers");
-        //Iterator phonesItr = phoneNumbersArr.iterator();
-        //System.out.println("phoneNumbers:");
-// Выводим в цикле данные массива
-//        while (phonesItr.hasNext()) {
-//            JSONObject test = (JSONObject) phonesItr.next();
-//            System.out.println("- type: " + test.get("type") + ", phone: " + test.get("number"));
-//        }
+                int userinsert=0;
+                while ((userinsert!=1) & (userinsert!=2)){
+                    System.out.println("""
+                            1)Output all
+                            2)Return to main menu""");
+                    userinsert=scn.nextInt();
+                }
+                switch (userinsert){
+                    case 1 -> {
+                        for (Storage storage : vec) {
+                            storage.output();
+                        }
+                        System.out.println("Please enter to return main menu");
+                        userinsert=scn.nextInt();
+                    }
+                    default -> {}
+                }
+            } else {
+                System.out.println("There are no entries for your request in our database. Probably you're safe!");
+                System.out.println("Please enter to return main menu");
+                int userinsert=scn.nextInt();
+            }
     } catch (Exception e) {
-        e.printStackTrace();
+                e.printStackTrace();
+                System.out.println("Connection error");
+                System.out.println("Please enter to return main menu");
+                int userinsert=scn.nextInt();
+                for (int i = 0; i < 50; ++i) System.out.println();
     }
     }
 }
