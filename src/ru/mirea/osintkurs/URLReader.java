@@ -5,7 +5,6 @@ import org.json.simple.parser.JSONParser;
 import java.net.*;
 import java.io.*;
 import java.util.*;
-//import java.util.concurrent.TimeUnit;
 
 public class URLReader extends Thread{
     public void run()  {
