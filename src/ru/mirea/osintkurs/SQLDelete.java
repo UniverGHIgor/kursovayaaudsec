@@ -1,7 +1,6 @@
 package ru.mirea.osintkurs;
-import java.sql.*;
 import java.util.*;
-import java.sql.PreparedStatement;
+
 
 
     public class SQLDelete extends SQL{
@@ -39,7 +38,7 @@ import java.sql.PreparedStatement;
                 Scanner scn = new Scanner(System.in);
                 String data = scn.nextLine();
 
-                System.out.print("\nDeleting your data into table...");
+                System.out.print("\nDeleting your data from the table...");
                 stmt = conn.createStatement();
                 String deleteSql = "DELETE FROM "+namebase+"."+table+" WHERE "+args+" = '"+data+"'";
                 stmt = conn.prepareStatement(deleteSql);
@@ -47,23 +46,20 @@ import java.sql.PreparedStatement;
 
                 System.out.println(" SUCCESS!\n");
 
-            } catch (SQLException se) {
-                se.printStackTrace();
+                System.out.println("Please enter to return main menu");
+                int userinsert=scn.nextInt();
+                for (int i = 0; i < 50; ++i) System.out.println();
+
             } catch (Exception e) {
+                Scanner scn = new Scanner(System.in);
                 e.printStackTrace();
-            } finally {
-                try {
-                    if (stmt != null)
-                        conn.close();
-                } catch (SQLException se) {
-                }
-                try {
-                    if (conn != null)
-                        conn.close();
-                } catch (SQLException se) {
-                    se.printStackTrace();
-                }
+                System.out.println("Incorrect");
+                System.out.println("Please enter to return main menu");
+                int userinsert=scn.nextInt();
+                for (int i = 0; i < 50; ++i) System.out.println();
             }
+
         }
+
     }
 

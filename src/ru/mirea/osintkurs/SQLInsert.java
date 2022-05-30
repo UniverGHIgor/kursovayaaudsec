@@ -24,7 +24,7 @@ public class SQLInsert extends SQL {
                 System.out.print("Enter your password: ");
                 password = scn.nextLine();
 
-                System.out.print("\nInserting your data into table...");
+                System.out.print("\nInserting your data into the table...");
 
                 String insertSql = "INSERT INTO "+namebase+"."+table+" (nickname, mail, password) VALUES "
                         + "('"+nickname+"','"+mail+"','"+password+"');";
@@ -35,5 +35,8 @@ public class SQLInsert extends SQL {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        System.out.println("Please enter to return main menu");
+        int userinsert=scn.nextInt();
+        for (int i = 0; i < 50; ++i) System.out.println();
         }
     }
