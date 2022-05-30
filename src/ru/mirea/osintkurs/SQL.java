@@ -1,7 +1,7 @@
 package ru.mirea.osintkurs;
 import java.sql.*;
 
-public class SQL extends Thread{
+public class SQL {
     protected Connection conn = null;
     protected String  url,namebase,pass,table;
     protected Statement stmt = null;
