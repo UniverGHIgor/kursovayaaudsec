@@ -1,7 +1,6 @@
 package ru.mirea.osintkurs;
 import java.sql.*;
 import java.util.*;
-//import java.sql.PreparedStatement;
 
 public class SQLsearch extends SQL{
 
