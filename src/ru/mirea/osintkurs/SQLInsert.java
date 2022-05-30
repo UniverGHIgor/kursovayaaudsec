@@ -5,13 +5,6 @@ public class SQLInsert extends SQL {
         super(url, namebase, pass, table);
         Startconnect();
     }
-    public SQLInsert(String url, String namebase, String pass, String table , String nickname,String mail,String password) {
-        super(url, namebase, pass, table);
-        this.nickname=nickname;
-        this.mail=mail;
-        this.password=password;
-        Startconnect();
-    }
     public void Startinsert() {
                 //Class.forName("com.mysql.jdbc.Driver");
                 Scanner scn = new Scanner(System.in);
